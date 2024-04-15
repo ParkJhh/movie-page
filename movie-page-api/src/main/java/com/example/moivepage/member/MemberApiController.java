@@ -15,18 +15,18 @@ public class MemberApiController {
     @DeleteMapping("/{id}")
     //회원 삭제
     public void deleteMember(){
-
+        memberService.deleteMember();
     }
 
     @PostMapping("/")
     //회원 가입
     public void addMember(){
-
+        memberService.addMember();
     }
 
     @PutMapping("/{id}")
     //회원 수정
     public void updateMember(){
-
+        memberService.updateMember();
     }
 }
