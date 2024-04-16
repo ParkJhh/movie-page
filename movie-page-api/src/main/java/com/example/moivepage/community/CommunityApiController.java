@@ -1,6 +1,7 @@
 package com.example.moivepage.community;
 
 
+import com.example.moivepage.dto.request.RequestCommunity;
 import com.example.moivepage.dto.response.ResponseCommunity;
 import com.example.moivepage.dto.response.ResponseCommunityList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +16,20 @@ public class CommunityApiController {
 
     @DeleteMapping("/{id}")
     //게시글 삭제
-    public void deleteCommunity(){
-        communityService.deleteCommunity();
+    public void deleteCommunity(
+            @PathVariable
+            Long id
+    ){
+        communityService.deleteCommunity(id);
     }
 
     @GetMapping("/{id}")
     //게시글 상세 조회
-    public ResponseCommunity detailCommunity(){
-        return communityService.getCommunityDetail();
+    public ResponseCommunity detailCommunity(
+            @PathVariable
+            Long id
+    ){
+        return communityService.getCommunityDetail(id);
     }
 
     @GetMapping("/list/{page}")
@@ -33,13 +40,19 @@ public class CommunityApiController {
 
     @PostMapping("/")
     //게시글 등록
-    public void addCommunity(){
-        communityService.addCommunity();
+    public void addCommunity(
+            @RequestBody
+            RequestCommunity requestCommunity
+    ){
+        communityService.addCommunity(requestCommunity);
     }
 
     @PutMapping("/{id}")
     //게시글 수정
-    public void updateCommunity(){
-        communityService.updateCommunity();
+    public void updateCommunity(
+            @RequestBody
+            RequestCommunity requestCommunity
+    ){
+        communityService.updateCommunity(requestCommunity);
     }
 }

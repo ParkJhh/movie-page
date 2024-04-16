@@ -1,10 +1,8 @@
 package com.example.moivepage.member;
 
+import com.example.moivepage.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController("/api/member")
 public class MemberApiController {
@@ -14,19 +12,28 @@ public class MemberApiController {
 
     @DeleteMapping("/{id}")
     //회원 삭제
-    public void deleteMember(){
-        memberService.deleteMember();
+    public void deleteMember(
+            @RequestBody
+            Member member
+    ){
+        memberService.deleteMember(member);
     }
 
     @PostMapping("/")
     //회원 가입
-    public void addMember(){
-        memberService.addMember();
+    public void addMember(
+            @RequestBody
+            Member member
+    ){
+        memberService.addMember(member);
     }
 
     @PutMapping("/{id}")
     //회원 수정
-    public void updateMember(){
-        memberService.updateMember();
+    public void updateMember(
+            @RequestBody
+            Member member
+    ){
+        memberService.updateMember(member);
     }
 }

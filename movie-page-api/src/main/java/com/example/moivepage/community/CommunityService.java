@@ -1,5 +1,6 @@
 package com.example.moivepage.community;
 
+import com.example.moivepage.dto.request.RequestCommunity;
 import com.example.moivepage.dto.response.ResponseCommunity;
 import com.example.moivepage.dto.response.ResponseCommunityList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +13,13 @@ public class CommunityService {
     CommunityMapper communityMapper;
 
     //게시글 삭제
-    public void deleteCommunity(){
-        communityMapper.deleteBoard();
+    public void deleteCommunity(Long id){
+        communityMapper.deleteBoard(id);
     }
 
     //게시글 상세 조회
-    public ResponseCommunity getCommunityDetail(){
-        return communityMapper.getCommunityDetail();
+    public ResponseCommunity getCommunityDetail(Long id){
+        return communityMapper.getCommunityDetail(id);
     }
 
     //게시글 목록 조회
@@ -27,12 +28,12 @@ public class CommunityService {
     }
 
     //게시글 등록
-    public void addCommunity(){
-        communityMapper.addBoard();
+    public void addCommunity(RequestCommunity requestCommunity){
+        communityMapper.addBoard(requestCommunity);
     }
 
     //게시글 수정
-    public void updateCommunity(){
-        communityMapper.updateBoard();
+    public void updateCommunity(RequestCommunity requestCommunity){
+        communityMapper.updateBoard(requestCommunity);
     }
 }

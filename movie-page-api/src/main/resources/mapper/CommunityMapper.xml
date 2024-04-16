@@ -1,23 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.moivepage.community.CommunityMapper">
-    <delete id="deleteBoard">
-
+    <delete id="deleteBoard" parameterType="id">
+        DELETE FROM community
+        WHERE id = #{id}
     </delete>
 
-    <select id="getCommunityDetail">
-
+    <select id="getCommunityDetail" parameterType="id" resultType="com.example.moivepage.dto.response.ResponseCommunity">
+        SELECT
+            *
+        FROM
+            community
+        WHERE
+            id = #{id}
     </select>
 
-    <select id="getCommunityList">
-
+    <select id="getCommunityList" resultType="com.example.moivepage.dto.response.ResponseCommunityList">
+        SELECT
+            id,
+            title,
+            username,
+            view_count
+        FROM
+            community
+        ORDER BY
+            created_at DESC
+        LIMIT
+            #{page}, 10
     </select>
 
-    <insert id="addBoard">
-
+    <insert id="addBoard" parameterType="com.example.moivepage.dto.request.RequestCommunity">
+        INSERT INTO community
+        (
+            title,
+            note,
+            username
+        )
+        VALUE
+        (
+            #{title},
+            #{note},
+            #{username}
+        )
     </insert>
 
-    <update id="updateBoard">
-
+    <update id="updateBoard" parameterType="com.example.moivepage.dto.request.RequestCommunity">
+        UPDATE
+            community
+        SET
+            title = #{title},
+            note = #{note}
+        WHERE
+            id = #{id}
     </update>
 </mapper>
