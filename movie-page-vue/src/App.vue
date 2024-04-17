@@ -18,6 +18,18 @@
 </script>
 
 <style>
+div::-webkit-scrollbar-thumb {
+  /* 스크롤바 */
+  width: 15px;
+  border-radius: 10px;
+  background: aliceblue;
+}
+
+main {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,8 +39,8 @@
 }
 
 :root {
-  --primary-color: #22254b;
-  --secondary-color: #373b69;
+  --primary-color: #22254b !important;
+  --secondary-color: #373b69 !important;
 }
 
 body {
