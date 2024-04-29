@@ -19,6 +19,8 @@ public class CommunityService {
 
     //게시글 상세 조회
     public ResponseCommunity getCommunityDetail(Long id){
+        //조회수 업
+        communityMapper.upCount(id);
         return communityMapper.getCommunityDetail(id);
     }
 
