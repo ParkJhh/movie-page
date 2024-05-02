@@ -24,7 +24,7 @@ public class LoginService {
         //비밀번호 체크 성공시 세션 부여 및 리턴 true
         if(check.getLoginId().equals(login.getLoginId())){
             if(check.getPassword().equals(login.getPassword())){
-                request.getSession().setAttribute("id", check.getLoginId());
+                request.getSession().setAttribute("id", check.getPrimaryId());
                 return true;
             }
         }

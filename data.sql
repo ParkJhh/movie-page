@@ -18,7 +18,7 @@ CREATE TABLE `my_movie`.`member` (
     `loginId` VARCHAR(20) NOT NULL,
     `password` VARCHAR(20) NOT NULL,
     `name` VARCHAR(15) NOT NULL,
-    `eamil` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
     `phone` VARCHAR(25) NULL,
     `address_no` VARCHAR(25) NOT NULL,
     `address1` VARCHAR(100) NOT NULL,
@@ -31,3 +31,6 @@ CREATE TABLE `my_movie`.`member` (
 ALTER TABLE `my_movie`.`community`
     CHANGE COLUMN `created_at` `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ,
     CHANGE COLUMN `updated_at` `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ;
+
+ALTER TABLE `my_movie`.`member`
+    ADD COLUMN `profile` LONGBLOB NULL DEFAULT NULL AFTER `gender`;

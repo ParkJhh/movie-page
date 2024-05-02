@@ -4,11 +4,14 @@ import lombok.Data;
 
 @Data
 public class Member {
-    String loginid;
+    String loginId;
     String password;
     String name;
-    String address;
     String email;
-    String gender;
-    byte[] photo;
+    String phone;
+    String address_no;
+    String address1;
+    String address2;
+    String birthday;
+    int gender;
 }

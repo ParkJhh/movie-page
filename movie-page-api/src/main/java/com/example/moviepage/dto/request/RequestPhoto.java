@@ -4,5 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestPhoto {
+    String loginId;
     byte[] photo;
+    String img;
 }
