@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.moivepage.login.LoginMapper">
-    <select id="loginCheck" parameterType="com.example.moivepage.dto.Login" resultType="com.example.moivepage.dto.Login">
+<mapper namespace="com.example.moviepage.login.LoginMapper">
+    <select id="loginCheck" parameterType="com.example.moviepage.dto.Login" resultType="com.example.moviepage.dto.Login">
         SELECT
             id,
             password

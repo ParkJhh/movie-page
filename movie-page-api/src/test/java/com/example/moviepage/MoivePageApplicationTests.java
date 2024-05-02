@@ -1,4 +1,4 @@
-package com.example.moivepage;
+package com.example.moviepage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

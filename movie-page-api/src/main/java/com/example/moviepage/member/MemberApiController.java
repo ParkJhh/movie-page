@@ -1,6 +1,6 @@
-package com.example.moivepage.member;
+package com.example.moviepage.member;
 
-import com.example.moivepage.dto.Member;
+import com.example.moviepage.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.example.moivepage.dto;
+package com.example.moviepage.dto;
 
 import lombok.Data;
 

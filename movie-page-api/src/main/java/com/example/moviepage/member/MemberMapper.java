@@ -1,6 +1,6 @@
-package com.example.moivepage.member;
+package com.example.moviepage.member;
 
-import com.example.moivepage.dto.Member;
+import com.example.moviepage.dto.Member;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -11,4 +11,6 @@ public interface MemberMapper {
     void addMember(Member member);
     //회원 수정
     void updateMember(Member member);
+
+    String findMemberById(Long sessionId);
 }

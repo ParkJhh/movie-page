@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.moivepage.member.MemberMapper">
-    <delete id="deleteMember" parameterType="com.example.moivepage.dto.Member">
+<mapper namespace="com.example.moviepage.member.MemberMapper">
+    <delete id="deleteMember" parameterType="com.example.moviepage.dto.Member">
         DELETE FROM member
         where id = #{id}
     </delete>
 
-    <insert id="addMember" parameterType="com.example.moivepage.dto.Member">
+    <insert id="addMember" parameterType="com.example.moviepage.dto.Member">
         INSERT INTO member
         (
             id,
@@ -27,7 +27,17 @@
         )
     </insert>
 
-    <update id="updateMember" parameterType="com.example.moivepage.dto.Member">
+    <select id="findMemberById" parameterType="Long" resultType="String">
+        SELECT
+            id
+        FROM
+            member
+        WHERE
+            primaryId = #{sessionId}
+    </select>
+
+
+    <update id="updateMember" parameterType="com.example.moviepage.dto.Member">
         UPDATE
             member
         SET

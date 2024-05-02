@@ -1,4 +1,4 @@
-package com.example.moivepage.dto.response;
+package com.example.moviepage.dto.response;
 
 import lombok.Data;
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.moivepage.community.CommunityMapper">
+<mapper namespace="com.example.moviepage.community.CommunityMapper">
     <delete id="deleteBoard" parameterType="long">
         DELETE FROM community
         WHERE id = #{id}
     </delete>
 
-    <select id="getCommunityDetail" parameterType="id" resultType="com.example.moivepage.dto.response.ResponseCommunity">
+    <select id="getCommunityDetail" parameterType="long" resultType="com.example.moviepage.dto.response.ResponseCommunity">
         SELECT
             *
         FROM
@@ -15,11 +15,13 @@
             id = #{id}
     </select>
 
-    <select id="getCommunityList" resultType="com.example.moivepage.dto.response.ResponseCommunityList">
+    <select id="getCommunityList" parameterType="long" resultType="com.example.moviepage.dto.response.ResponseCommunity">
         SELECT
             id,
             title,
             username,
+            created_at,
+            updated_at,
             view_count
         FROM
             community
@@ -29,7 +31,7 @@
             #{page}, 10
     </select>
 
-    <insert id="addBoard" parameterType="com.example.moivepage.dto.request.RequestCommunity">
+    <insert id="addBoard" parameterType="com.example.moviepage.dto.request.RequestCommunity">
         INSERT INTO community
         (
             title,
@@ -44,7 +46,7 @@
         )
     </insert>
 
-    <update id="updateBoard" parameterType="com.example.moivepage.dto.request.RequestCommunity">
+    <update id="updateBoard" parameterType="com.example.moviepage.dto.request.RequestCommunity">
         UPDATE
             community
         SET
@@ -58,8 +60,8 @@
         UPDATE
             community
         SET
-            view_count = view_point + 1
+            view_count = view_count + 1
         WHERE
-            id = {id}
+            id = #{id}
     </update>
 </mapper>

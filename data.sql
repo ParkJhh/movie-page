@@ -10,7 +10,7 @@ CREATE TABLE `my_movie`.`community` (
     `username` VARCHAR(50) NOT NULL,
     `created_at` DATETIME NULL,
     `updated_at` DATETIME NULL,
-    `view_count` INT NULL,
+    `view_count` INT DEFAULT 0,
     PRIMARY KEY (`id`));
 
 CREATE TABLE `my_movie`.`member` (
@@ -26,3 +26,8 @@ CREATE TABLE `my_movie`.`member` (
     `birthday` DATE NOT NULL,
     `gender` INT NOT NULL,
     PRIMARY KEY (`primaryId`));
+
+
+ALTER TABLE `my_movie`.`community`
+    CHANGE COLUMN `created_at` `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ,
+    CHANGE COLUMN `updated_at` `updated_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ;

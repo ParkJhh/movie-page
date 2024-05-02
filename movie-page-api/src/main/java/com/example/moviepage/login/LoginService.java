@@ -1,6 +1,6 @@
-package com.example.moivepage.login;
+package com.example.moviepage.login;
 
-import com.example.moivepage.dto.Login;
+import com.example.moviepage.dto.Login;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
