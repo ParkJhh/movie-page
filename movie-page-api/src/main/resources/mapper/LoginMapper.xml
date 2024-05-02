@@ -11,4 +11,13 @@
         WHERE
             loginId = #{loginId}
     </select>
+
+    <update id="updatePassword" parameterType="com.example.moviepage.dto.request.RequestNewPassword">
+        UPDATE
+            member
+        SET
+            password = #{changePassword}
+        WHERE
+            loginId = #{loginId}
+    </update>
 </mapper>

@@ -2,11 +2,11 @@ package com.example.moviepage.login;
 
 
 import com.example.moviepage.dto.Login;
+import com.example.moviepage.dto.request.RequestNewPassword;
+import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController("/api/login")
 public class LoginApiController {
@@ -25,5 +25,17 @@ public class LoginApiController {
             HttpServletRequest request
     ){
         return loginService.loginCheck(login, request);
+    }
+    @PutMapping("/pwchange")
+    public boolean changePassword(
+            //            @SessionAttribute(name="id")
+            @Parameter(description = "세션 아이디")
+            Long sessionId,
+
+            @RequestBody
+            @Parameter(description = "변경할 비밀번호")
+            RequestNewPassword requestNewPassword
+    ){
+        return loginService.changePw(sessionId,requestNewPassword);
     }
 }
