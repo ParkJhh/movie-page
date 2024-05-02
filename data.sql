@@ -15,7 +15,7 @@ CREATE TABLE `my_movie`.`community` (
 
 CREATE TABLE `my_movie`.`member` (
     `primaryId` INT NOT NULL AUTO_INCREMENT,
-    `id` VARCHAR(20) NOT NULL,
+    `loginId` VARCHAR(20) NOT NULL,
     `password` VARCHAR(20) NOT NULL,
     `name` VARCHAR(15) NOT NULL,
     `eamil` VARCHAR(100) NOT NULL,

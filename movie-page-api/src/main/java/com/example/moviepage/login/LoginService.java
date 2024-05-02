@@ -22,9 +22,9 @@ public class LoginService {
 
         //아이디 체크후 맞으면 비밀번호 체크
         //비밀번호 체크 성공시 세션 부여 및 리턴 true
-        if(check.getLoginid().equals(login.getLoginid())){
+        if(check.getLoginId().equals(login.getLoginId())){
             if(check.getPassword().equals(login.getPassword())){
-                request.getSession().setAttribute("id", check.getLoginid());
+                request.getSession().setAttribute("id", check.getLoginId());
                 return true;
             }
         }

@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController("/api/login")
 public class LoginApiController {
+    private final LoginService loginService;
 
     @Autowired
-    LoginService loginService;
+    public LoginApiController(LoginService loginService) {
+        this.loginService = loginService;
+    }
 
     @PostMapping("/chk")
     //로그인

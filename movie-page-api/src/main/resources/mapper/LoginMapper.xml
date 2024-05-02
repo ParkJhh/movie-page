@@ -3,11 +3,11 @@
 <mapper namespace="com.example.moviepage.login.LoginMapper">
     <select id="loginCheck" parameterType="com.example.moviepage.dto.Login" resultType="com.example.moviepage.dto.Login">
         SELECT
-            id,
+            loginId,
             password
         FROM
             member
         WHERE
-            id = #{id}
+            loginId = #{loginId}
     </select>
 </mapper>
