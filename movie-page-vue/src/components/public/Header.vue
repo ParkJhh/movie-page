@@ -40,11 +40,11 @@ header > nav > ul > li > a {
     display: inline-block;
     line-height: 60px;
     padding: 0 30px;
-    color: white;
+    color: white !important;
 }
 
 header > nav > a:hover {
-    color: #7378c5;
+    color: #7378c5 !important;
 }
 
 

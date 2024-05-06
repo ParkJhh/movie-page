@@ -17,7 +17,7 @@ public class MemberApiController {
     }
 
     @DeleteMapping("/")
-    //회원 삭제
+    @Operation(summary = "회원 탈퇴")
     public boolean deleteMember(
 //            @SessionAttribute(name="id")
             @Parameter(description = "세션 아이디")
@@ -35,7 +35,7 @@ public class MemberApiController {
     }
 
     @PostMapping("/")
-    //회원 가입
+    @Operation(summary = "회원 가입")
     public void addMember(
             @RequestBody
             Member member
@@ -44,7 +44,7 @@ public class MemberApiController {
     }
 
     @PutMapping("/")
-    //회원 수정
+    @Operation(summary = "회원 수정")
     public void updateMember(
             @RequestBody
             Member member
@@ -53,7 +53,7 @@ public class MemberApiController {
     }
 
     @PutMapping("/profile")
-    //회원 사진 변경
+    @Operation(summary = "회원 사진 변경")
     public void PutProfile(
 //            @SessionAttribute(name="id")
             @Parameter(description = "로그인 회원 번호")

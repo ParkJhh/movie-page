@@ -4,6 +4,7 @@ package com.example.moviepage.community;
 import com.example.moviepage.dto.request.RequestCommunity;
 import com.example.moviepage.dto.response.ResponseCommunity;
 import com.example.moviepage.dto.response.ResponseCommunityList;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class CommunityApiController {
     }
 
     @DeleteMapping("/{id}")
-    //게시글 삭제
+    @Operation(summary = "커뮤니티 게시물 삭제")
     public void deleteCommunity(
             @PathVariable
             @Parameter(description = "삭제할 커뮤니티 게시물 번호")
@@ -30,7 +31,7 @@ public class CommunityApiController {
     }
 
     @GetMapping("/{id}")
-    //게시글 상세 조회
+    @Operation(summary = "커뮤니티 게시물 상세 조회")
     public ResponseCommunity detailCommunity(
             @PathVariable
             @Parameter(description = "조회할 커뮤니티 게시물 번호")
@@ -40,6 +41,7 @@ public class CommunityApiController {
     }
 
     @GetMapping("/list/{page}")
+    @Operation(summary = "커뮤니티 게시물 목록 조회")
     //게시글 목록 조회
     public ResponseCommunityList listCommunity(
             @PathVariable
@@ -50,7 +52,7 @@ public class CommunityApiController {
     }
 
     @PostMapping("/")
-    //게시글 등록
+    @Operation(summary = "커뮤니티 게시물 등록")
     public void addCommunity(
             @RequestBody
             @Parameter(description = "등록할 커뮤니티 게시물")
@@ -64,7 +66,7 @@ public class CommunityApiController {
     }
 
     @PutMapping("/{id}")
-    //게시글 수정
+    @Operation(summary = "커뮤니티 게시물 수정")
     public void updateCommunity(
             @RequestBody
             @Parameter(description = "수정할 커뮤니티 게시물")

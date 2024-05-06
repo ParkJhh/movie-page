@@ -11,6 +11,8 @@ vue를 활용한 movie page
  - swagger http://localhost:8080/swagger-ui/index.html#/
 
 메인
+ - 오픈API로 영화 정보 보여주기
+ - 10페이지씩 총 30페이지 페이지네이션
 
 로그인
  - 로그인

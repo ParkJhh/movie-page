@@ -3,6 +3,7 @@ package com.example.moviepage.login;
 
 import com.example.moviepage.dto.Login;
 import com.example.moviepage.dto.request.RequestNewPassword;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class LoginApiController {
     }
 
     @PostMapping("/chk")
-    //로그인
+    @Operation(summary = "로그인")
     public boolean login(
             @RequestBody
             Login login,
@@ -26,7 +27,8 @@ public class LoginApiController {
     ){
         return loginService.loginCheck(login, request);
     }
-    @PutMapping("/pwchange")
+    @PutMapping("/pwChange")
+    @Operation(summary = "비밀번호 변경")
     public boolean changePassword(
             //            @SessionAttribute(name="id")
             @Parameter(description = "세션 아이디")
