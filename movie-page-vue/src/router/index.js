@@ -3,6 +3,7 @@ import Mainpage from '@/components/Mainpage.vue'
 import Login from '@/components/Login.vue'
 import Signup from '@/components/Signup.vue'
 import Community from '@/components/Community.vue'
+import Find from '@/components/Find.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     name: 'community',
     component: Community
   },
+  {
+    path: '/find',
+    name: 'find',
+    component: Find
+  }
 ]
 
 const router = createRouter({
