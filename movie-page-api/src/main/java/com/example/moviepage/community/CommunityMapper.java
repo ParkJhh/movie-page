@@ -14,6 +14,8 @@ public interface CommunityMapper {
     ResponseCommunity getCommunityDetail(Long id);
     //게시글 목록 조회
     List<ResponseCommunity> getCommunityList(Long page);
+    //게시글 전체 조회
+    int getAllCount();
     //게시글 등록
     void addBoard(RequestCommunity requestCommunity);
     //게시글 수정

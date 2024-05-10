@@ -35,6 +35,17 @@ public class LoginService {
         return false;
     }
 
+    //아이디 중복 체크
+    public boolean idCheck(String loginId){
+        if(loginId != null){
+           String check = loginMapper.idCheck(loginId);
+           if(check == null){
+               return true;
+           }
+        }
+        return false;
+    }
+
     //비밀번호 변경
     public boolean changePw(Long sessionId, RequestNewPassword requestNewPassword){
         //입력받은 비밀번호 체크

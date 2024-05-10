@@ -38,23 +38,86 @@
         </div>
         
         <nav aria-label="Page navigation example"> 
-        <ul class="pagination justify-content-center" id="pagination">
-            <li>
-                <a class="page-link" @click="moveToPrevPage">Previous</a>
-            </li>
-            <li>
-                <a class="page-link" @click="pageMove(page + pagenationNum)">{{ page + pagenationNum }}</a>
-            </li>
-            <li >
-                <a class="page-link" @click="moveToNextPage">Next</a>
-            </li>
-        </ul>
-    </nav>
-
+            <ul class="pagination justify-content-center" id="pagination">
+                <li :class="hasPrevPage(currentPage) ? 'page-item' : 'page-item disabled'">
+                    <a class="page-link" @click="moveToPrevPage">Previous</a>
+                </li>
+                <li v-for="page in maxPageOnScreen" :key="page + pagenationNum" :class="{'page-item': true, 'active': page + pagenationNum === currentPage}">
+                    <a class="page-link" @click="pageMove(page + pagenationNum)">{{ page + pagenationNum }}</a>
+                </li>
+                <li :class="hasNextPage(currentPage) ? 'page-item' : 'page-item disabled'">
+                    <a class="page-link" @click="moveToNextPage">Next</a>
+                </li>
+            </ul>
+        </nav>
     </main>
 </template>
 
 <script>
+export default {
+    data() {
+        return {
+          communityData : [{
+            id: 0,
+            note: "",
+            username: "",
+            created_at: "",
+            updated_at: "",
+            view_count: 0,
+        }],
+        currentPage: 1,
+        startPageOnScreen: 1,
+        pagenationNum: 0,
+        //커뮤니티는 한 화면에 10개씩
+        maxPageOnScreen: 10,
+        allCommunityCount: 0,
+      }
+    },
+
+    async mounted() {
+        this.communityData = await this.$movie.listCommunity(1);
+        this.allCommunityCount = await this.$movie.allCountCommunity();
+        console.log(this.allCommunityCount)
+    },
+
+    methods : {
+      hasPrevPage(currentPage) {
+        if(currentPage < 11) {
+          return false;
+        } else {
+          return true;
+        }
+      },
+      hasNextPage(currentPage) { 
+        if(currentPage + this.pagenationNum > this.allCommunityCount) {
+          return false;
+        } else {
+          return true;
+        }
+      },
+      moveToPrevPage(){
+        if(this.currentPage > 10){
+          this.currentPage = this.currentPage - 10;
+          this.pagenationNum -= 10;
+          this.pageMove(this.currentPage)
+        }
+      },
+      moveToNextPage(){
+        if(this.currentPage < 30){
+          this.currentPage = this.currentPage + 10;
+          this.pagenationNum += 10;
+          this.pageMove(this.currentPage)
+        } 
+      },
+      async pageMove(page){
+        this.currentPage = page
+        this.communityData = await this.$movie.listCommunity(page);
+        return this.communityData;
+      }
+    }
+}
+
+
 
 </script>
 

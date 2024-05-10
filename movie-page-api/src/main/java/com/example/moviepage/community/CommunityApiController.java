@@ -51,6 +51,12 @@ public class CommunityApiController {
         return communityService.getListCommunity(page);
     }
 
+    @GetMapping("/countAll")
+    @Operation(summary = "커뮤니티 게시물 전체 개수")
+    public int allCount(){
+        return communityService.getAllCount();
+    }
+
     @PostMapping("/")
     @Operation(summary = "커뮤니티 게시물 등록")
     public void addCommunity(

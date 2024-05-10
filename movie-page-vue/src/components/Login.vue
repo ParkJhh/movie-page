@@ -5,8 +5,8 @@
 
     <div class="loginForm">
         <form @submit.prevent="login" class="d-flex flex-column border border-5 gap-4 rounded-4">
-        <input id="userInput" class="rounded-3" type="text" placeholder="아이디" />
-        <input id="userInput" class="rounded-3" type="password" placeholder="비밀번호" />
+        <input id="userInput" class="rounded-3" v-model="loginId" type="text" placeholder="아이디" />
+        <input id="userInput" class="rounded-3" v-model="password" type="password" placeholder="비밀번호" />
 
         <div class="d-flex justify-content-between flex-column-on-small-screen">
           <div id="userInput">
@@ -67,6 +67,7 @@ export default {
 
   data() {
     return {
+      loginId: "",
       modal: "",
     };
   },
@@ -74,6 +75,16 @@ export default {
   methods: {
     async login() {
       this.modal = "login";
+
+      if(this.password == null){
+        this.modal = "passwordFail";
+        return;
+      }
+      if (await this.$movie.login(this.loginId, this.password)) {
+        location.href = "/";
+      } else {
+        this.modal = "loginFail";
+      }
     }
   },
 }

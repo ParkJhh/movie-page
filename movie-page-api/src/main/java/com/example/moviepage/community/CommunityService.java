@@ -48,6 +48,11 @@ public class CommunityService {
         return responseCommunityList;
     }
 
+    //게시글 전체 수
+    public int getAllCount(){
+        return communityMapper.getAllCount();
+    }
+
     //게시글 등록
     public void addCommunity(RequestCommunity requestCommunity, Long sessionId){
         requestCommunity.setUsername(memberMapper.findMemberById(sessionId));

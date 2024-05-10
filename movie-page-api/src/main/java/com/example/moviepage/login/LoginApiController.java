@@ -27,6 +27,16 @@ public class LoginApiController {
     ){
         return loginService.loginCheck(login, request);
     }
+
+    @PostMapping("/idChk")
+    @Operation(summary = "중복 아이디 확인")
+    public boolean idChk(
+            @RequestBody
+            String loginId
+    ){
+        return loginService.idCheck(loginId);
+    }
+
     @PutMapping("/pwChange")
     @Operation(summary = "비밀번호 변경")
     public boolean changePassword(
