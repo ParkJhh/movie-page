@@ -4,7 +4,7 @@
     </div>
 
     <div class="loginForm">
-        <form class="d-flex flex-column border border-5 gap-4 rounded-4">
+        <form @submit.prevent="login" class="d-flex flex-column border border-5 gap-4 rounded-4">
         <input id="userInput" class="rounded-3" type="text" placeholder="아이디" />
         <input id="userInput" class="rounded-3" type="password" placeholder="비밀번호" />
 
@@ -33,11 +33,11 @@
             >아이디 / 비밀번호를 잊으셨다면?</a
           >
         </div>
-        
+
         <div id="loginButton" class="d-flex justify-content-center">
           <button
             data-bs-toggle="modal"
-            data-bs-target="#alertModal"
+            data-bs-target="#ErrorModal"
             class="btn btn-secondary"
           >
             로그인
@@ -45,9 +45,38 @@
         </div>
       </form>
     </div>
+
+    <div id="signPath">
+      <h4>아직 회원이 아니시라면?</h4>
+        <div class="d-flex justify-content-center">
+          <a @click="$router.push('signup')" class="btn btn-outline-primary">회원가입</a >
+        </div>
+    </div>
+
+    <!-- 로그인상태 모달 -->
+  <ErrorModal :modal="modal" />
 </template>
 
 <script>
+import ErrorModal from "@/components/modal/ErrorModal.vue"
+
+export default {
+  components: {
+    ErrorModal,
+  },
+
+  data() {
+    return {
+      modal: "",
+    };
+  },
+
+  methods: {
+    async login() {
+      this.modal = "login";
+    }
+  },
+}
 </script>
 
 <style scoped>
@@ -61,7 +90,7 @@
   justify-content: center;
   margin-left: 25%;
   margin-right: 25%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
 }
 
 #userInput {
@@ -75,7 +104,10 @@
 }
 
 #loginButton {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
+#signPath {
+  margin-bottom: 1%;
+}
 </style>
