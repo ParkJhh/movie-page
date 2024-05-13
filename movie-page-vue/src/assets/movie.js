@@ -18,7 +18,7 @@ export default {
     //커뮤니티 목록 조회
     async listCommunity(page){
         let res = await axios.get(`/api/community/list/${page}`);
-        return res.data;
+        return res.data.communityList;
     },
     //커뮤니티 전체 개수
     async allCountCommunity(){
@@ -36,7 +36,7 @@ export default {
 
     //로그인
     async login(loginId, password){
-        return await axios.post(`/api/login/chk` ,{
+        return await axios.post("/api/login/loginChk" ,{
             loginId: loginId,
             password: password,
         });

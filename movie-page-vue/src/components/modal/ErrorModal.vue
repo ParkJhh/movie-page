@@ -1,7 +1,7 @@
 <template>
     <div
       class="modal fade"
-      id="alertModal"
+      id="errorModal"
       tabindex="-1"
       aria-labelledby="alertModalLabel"
       aria-hidden="true"
@@ -61,7 +61,6 @@
   #modalButton,
   #button {
     color: rgb(255, 255, 255) !important;
-    background-color: #ff928e !important;
   }
   
   #modalBox {
@@ -79,7 +78,6 @@
   }
   a button {
     color: rgb(255, 255, 255);
-    background-color: #ff928e;
   }
   
   h3 {

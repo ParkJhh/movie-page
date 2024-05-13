@@ -9,7 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/login")
+@RestController
+@RequestMapping("/api/login")
 public class LoginApiController {
     private final LoginService loginService;
 
@@ -18,7 +19,7 @@ public class LoginApiController {
         this.loginService = loginService;
     }
 
-    @PostMapping("/chk")
+    @PostMapping("/loginChk")
     @Operation(summary = "로그인")
     public boolean login(
             @RequestBody

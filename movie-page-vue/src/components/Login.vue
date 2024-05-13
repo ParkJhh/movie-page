@@ -4,7 +4,7 @@
     </div>
 
     <div class="loginForm">
-        <form @submit.prevent="login" class="d-flex flex-column border border-5 gap-4 rounded-4">
+      <form @submit.prevent="login" class="d-flex flex-column border border-5 gap-4 rounded-4">
         <input id="userInput" class="rounded-3" v-model="loginId" type="text" placeholder="아이디" />
         <input id="userInput" class="rounded-3" v-model="password" type="password" placeholder="비밀번호" />
 
@@ -37,7 +37,7 @@
         <div id="loginButton" class="d-flex justify-content-center">
           <button
             data-bs-toggle="modal"
-            data-bs-target="#ErrorModal"
+            data-bs-target="#errorModal"
             class="btn btn-secondary"
           >
             로그인
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import ErrorModal from "@/components/modal/ErrorModal.vue"
+import ErrorModal from "./modal/ErrorModal.vue"
 
 export default {
   components: {
@@ -81,7 +81,7 @@ export default {
         return;
       }
       if (await this.$movie.login(this.loginId, this.password)) {
-        location.href = "/";
+        
       } else {
         this.modal = "loginFail";
       }

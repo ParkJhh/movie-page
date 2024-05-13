@@ -17,22 +17,14 @@
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                <tr>
-                <td>1</td>
-                <td>테스트</td>
-                <td>테스트</td>
-                <td>확인용</td>
-                <td>눈으로</td>
-                <td>봅니다</td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>테스트</td>
-                <td>테스트</td>
-                <td>확인용</td>
-                <td>눈으로</td>
-                <td>봅니다</td>
-                </tr>
+                  <tr v-for="(item, index) in communityData" :key="index">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.username }}</td>
+                    <td>{{ item.viewCount }}</td>
+                    <td>{{ item.createdAt }}</td>
+                    <td>{{ item.updatedAt }}</td>
+                  </tr>
                 </tbody>
             </table>
         </div>
@@ -59,11 +51,12 @@ export default {
         return {
           communityData : [{
             id: 0,
+            title: "",
             note: "",
             username: "",
-            created_at: "",
-            updated_at: "",
-            view_count: 0,
+            createdAt: "",
+            updatedAt: "",
+            viewCount: 0,
         }],
         currentPage: 1,
         startPageOnScreen: 1,
@@ -76,6 +69,7 @@ export default {
 
     async mounted() {
         this.communityData = await this.$movie.listCommunity(1);
+        console.log(this.communityData)
         this.allCommunityCount = await this.$movie.allCountCommunity();
         console.log(this.allCommunityCount)
     },
